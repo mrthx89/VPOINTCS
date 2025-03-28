@@ -20,20 +20,17 @@
                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                     <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-300">
-                            <thead class="bg-gray-50">
+                            <thead class="bg-dark-300">
                                 <tr>
                                     <th scope="col"
-                                        class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
-                                        Nama</th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        Nomor WhatsApp</th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        Pesan Terakhir</th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-200">
-                                        Status</th>
-                                    <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                                        <span class="sr-only">Aksi</span>
+                                        class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-6">Nama
                                     </th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">No.
+                                        WhatsApp</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Pesan
+                                        Terakhir</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">
+                                        Status</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-dark-300 bg-dark-100">

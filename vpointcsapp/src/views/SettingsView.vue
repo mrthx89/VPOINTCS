@@ -3,28 +3,25 @@
     <div class="space-y-12">
       <!-- WhatsApp Settings Section -->
       <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Pengaturan WhatsApp</h2>
-        <p class="mt-1 text-sm leading-6 text-gray-600">Konfigurasi koneksi WhatsApp dan pengaturan terkait.</p>
+        <h2 class="text-base font-semibold leading-7 text-white">Pengaturan WhatsApp</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-300">Konfigurasi koneksi WhatsApp dan pengaturan terkait.</p>
 
         <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="col-span-full">
             <div class="border rounded-lg bg-white p-6">
               <div class="flex items-center justify-between">
                 <div>
-                  <h3 class="text-sm font-medium text-gray-900">Status Koneksi</h3>
-                  <p class="text-sm text-gray-500">
+                  <h3 class="text-sm font-medium text-white">Status Koneksi</h3>
+                  <p class="text-sm text-gray-300">
                     {{ whatsappStatus.connected ? 'Terhubung' : 'Tidak Terhubung' }}
                   </p>
                 </div>
-                <button
-                  @click="scanQRCode"
-                  :class="[
-                    'rounded-md px-3 py-2 text-sm font-semibold',
-                    whatsappStatus.connected
-                      ? 'bg-red-600 text-white hover:bg-red-500'
-                      : 'bg-primary-600 text-white hover:bg-primary-500'
-                  ]"
-                >
+                <button @click="scanQRCode" :class="[
+                      'rounded-md px-3 py-2 text-sm font-semibold',
+                      whatsappStatus.connected
+                        ? 'bg-red-600 text-white hover:bg-red-500'
+                        : 'bg-primary-600 text-white hover:bg-primary-500'
+                    ]">
                   {{ whatsappStatus.connected ? 'Putuskan' : 'Hubungkan' }}
                 </button>
               </div>
@@ -36,11 +33,7 @@
                     Scan QR code ini dengan WhatsApp di ponsel Anda
                   </div>
                   <div class="flex justify-center">
-                    <img
-                      :src="qrCodeData"
-                      alt="WhatsApp QR Code"
-                      class="h-64 w-64"
-                    />
+                    <img :src="qrCodeData" alt="WhatsApp QR Code" class="h-64 w-64" />
                   </div>
                 </div>
               </div>
@@ -51,46 +44,28 @@
 
       <!-- Profile Settings Section -->
       <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Profil Pengguna</h2>
-        <p class="mt-1 text-sm leading-6 text-gray-600">Informasi dan pengaturan akun Anda.</p>
+        <h2 class="text-base font-semibold leading-7 text-white">Profil Pengguna</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-300">Informasi dan pengaturan akun Anda.</p>
 
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
-            <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+            <label for="username" class="block text-sm font-medium leading-6 text-white">Username</label>
             <div class="mt-2">
-              <input
-                type="text"
-                name="username"
-                id="username"
-                v-model="profile.username"
-                class="input-field"
-              />
+              <input type="text" name="username" id="username" v-model="profile.username" class="input-field" />
             </div>
           </div>
 
           <div class="sm:col-span-3">
-            <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nama Lengkap</label>
+            <label for="name" class="block text-sm font-medium leading-6 text-white">Nama Lengkap</label>
             <div class="mt-2">
-              <input
-                type="text"
-                name="name"
-                id="name"
-                v-model="profile.name"
-                class="input-field"
-              />
+              <input type="text" name="name" id="name" v-model="profile.name" class="input-field" />
             </div>
           </div>
 
           <div class="sm:col-span-4">
-            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+            <label for="email" class="block text-sm font-medium leading-6 text-white">Email</label>
             <div class="mt-2">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                v-model="profile.email"
-                class="input-field"
-              />
+              <input type="email" name="email" id="email" v-model="profile.email" class="input-field" />
             </div>
           </div>
         </div>
@@ -98,46 +73,33 @@
 
       <!-- Password Change Section -->
       <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Ubah Password</h2>
-        <p class="mt-1 text-sm leading-6 text-gray-600">Pastikan untuk menggunakan password yang kuat.</p>
+        <h2 class="text-base font-semibold leading-7 text-white">Ubah Password</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-300">Pastikan untuk menggunakan password yang kuat.</p>
 
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
-            <label for="current-password" class="block text-sm font-medium leading-6 text-gray-900">Password Saat Ini</label>
+            <label for="current-password" class="block text-sm font-medium leading-6 text-white">Password Saat
+              Ini</label>
             <div class="mt-2">
-              <input
-                type="password"
-                name="current-password"
-                id="current-password"
-                v-model="passwordChange.current"
-                class="input-field"
-              />
+              <input type="password" name="current-password" id="current-password" v-model="passwordChange.current"
+                class="input-field" />
             </div>
           </div>
 
           <div class="sm:col-span-3">
-            <label for="new-password" class="block text-sm font-medium leading-6 text-gray-900">Password Baru</label>
+            <label for="new-password" class="block text-sm font-medium leading-6 text-white">Password Baru</label>
             <div class="mt-2">
-              <input
-                type="password"
-                name="new-password"
-                id="new-password"
-                v-model="passwordChange.new"
-                class="input-field"
-              />
+              <input type="password" name="new-password" id="new-password" v-model="passwordChange.new"
+                class="input-field" />
             </div>
           </div>
 
           <div class="sm:col-span-3">
-            <label for="confirm-password" class="block text-sm font-medium leading-6 text-gray-900">Konfirmasi Password</label>
+            <label for="confirm-password" class="block text-sm font-medium leading-6 text-white">Konfirmasi
+              Password</label>
             <div class="mt-2">
-              <input
-                type="password"
-                name="confirm-password"
-                id="confirm-password"
-                v-model="passwordChange.confirm"
-                class="input-field"
-              />
+              <input type="password" name="confirm-password" id="confirm-password" v-model="passwordChange.confirm"
+                class="input-field" />
             </div>
           </div>
         </div>
@@ -199,7 +161,7 @@ const scanQRCode = async () => {
       const response = await fetch('/api/whatsapp/disconnect', {
         method: 'POST'
       })
-      
+
       if (!response.ok) {
         throw new Error('Failed to disconnect WhatsApp')
       }
@@ -212,7 +174,7 @@ const scanQRCode = async () => {
       const response = await fetch('/api/whatsapp/connect', {
         method: 'POST'
       })
-      
+
       if (!response.ok) {
         throw new Error('Failed to initiate WhatsApp connection')
       }

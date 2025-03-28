@@ -2,18 +2,13 @@
   <div>
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
-        <h1 class="text-base font-semibold leading-6 text-gray-900">Pesan Keluar</h1>
-        <p class="mt-2 text-sm text-gray-700">Daftar semua pesan WhatsApp yang telah dikirim ke pelanggan.</p>
+        <h1 class="text-base font-semibold leading-6 text-white">Pesan Keluar</h1>
+        <p class="mt-2 text-sm text-white">Daftar semua pesan WhatsApp yang telah dikirim ke pelanggan.</p>
       </div>
       <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
         <div class="flex space-x-4">
           <div class="relative">
-            <input
-              type="text"
-              v-model="searchQuery"
-              placeholder="Cari pesan..."
-              class="input-field w-64"
-            />
+            <input type="text" v-model="searchQuery" placeholder="Cari pesan..." class="input-field w-64" />
           </div>
           <select v-model="filterStatus" class="input-field w-40">
             <option value="">Semua Status</option>
@@ -31,18 +26,16 @@
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
           <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-300">
-              <thead class="bg-gray-50">
+              <thead class="bg-dark-300">
                 <tr>
-                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Pelanggan</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Pesan</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Waktu</th>
-                  <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                    <span class="sr-only">Aksi</span>
+                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-6">Pelanggan
                   </th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Pesan</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Status</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Waktu</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-gray-200 bg-white">
+              <tbody class="divide-y divide-gray-700 bg-dark-800">
                 <tr v-for="message in filteredMessages" :key="message.id">
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                     <div class="flex items-center">
@@ -50,12 +43,12 @@
                         <UserCircleIcon class="h-10 w-10 text-gray-300" aria-hidden="true" />
                       </div>
                       <div class="ml-4">
-                        <div class="font-medium text-gray-900">{{ message.customer }}</div>
-                        <div class="text-gray-500">{{ message.phone }}</div>
+                        <div class="font-medium text-white">{{ message.customer }}</div>
+                        <div class="text-gray-300">{{ message.phone }}</div>
                       </div>
                     </div>
                   </td>
-                  <td class="px-3 py-4 text-sm text-gray-500">
+                  <td class="px-3 py-4 text-sm text-gray-300">
                     <div class="max-w-md">
                       <p class="truncate">{{ message.content }}</p>
                       <span v-if="message.mediaUrl" class="mt-1 text-primary-600">
@@ -63,29 +56,26 @@
                       </span>
                     </div>
                   </td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
                     <span :class="[
-                      message.status === 'pending' ? 'bg-yellow-50 text-yellow-800' :
-                      message.status === 'sent' ? 'bg-blue-50 text-blue-800' :
-                      message.status === 'delivered' ? 'bg-green-50 text-green-800' :
-                      'bg-primary-50 text-primary-800',
-                      'inline-flex rounded-full px-2 text-xs font-semibold leading-5'
-                    ]">
-                      {{ 
-                        message.status === 'pending' ? 'Menunggu' :
-                        message.status === 'sent' ? 'Terkirim' :
-                        message.status === 'delivered' ? 'Diterima' :
-                        'Dibaca'
-                      }}
+              message.status === 'pending' ? 'bg-yellow-50 text-yellow-800' :
+                message.status === 'sent' ? 'bg-blue-50 text-blue-800' :
+                  message.status === 'delivered' ? 'bg-green-50 text-green-800' :
+                    'bg-primary-50 text-primary-800',
+              'inline-flex rounded-full px-2 text-xs font-semibold leading-5'
+            ]">
+                      {{
+              message.status === 'pending' ? 'Menunggu' :
+                message.status === 'sent' ? 'Terkirim' :
+                  message.status === 'delivered' ? 'Diterima' :
+                    'Dibaca'
+            }}
                     </span>
                   </td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatTime(message.time) }}</td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ formatTime(message.time) }}</td>
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                    <button
-                      @click="resendMessage(message)"
-                      v-if="message.status === 'pending'"
-                      class="text-primary-600 hover:text-primary-900"
-                    >
+                    <button @click="resendMessage(message)" v-if="message.status === 'pending'"
+                      class="text-primary-600 hover:text-primary-900">
                       Kirim Ulang
                     </button>
                   </td>

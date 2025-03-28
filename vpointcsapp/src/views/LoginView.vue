@@ -43,7 +43,7 @@
                 v-model="rememberMe"
                 name="remember-me"
                 type="checkbox"
-                class="h-4 w-4 rounded border-gray-300 bg-dark-300 text-primary-500 focus:ring-primary-500"
+                class="h-4 w-4 rounded border-dark-300 bg-dark-300 text-primary-500 focus:ring-primary-500"
               />
               <label for="remember-me" class="ml-3 block text-sm leading-6 text-gray-200">Ingat Saya</label>
             </div>

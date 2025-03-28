@@ -2,8 +2,8 @@
   <div>
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
-        <h1 class="text-base font-semibold leading-6 text-gray-900">Pesan Masuk</h1>
-        <p class="mt-2 text-sm text-gray-700">Daftar semua pesan WhatsApp yang masuk dari pelanggan.</p>
+        <h1 class="text-base font-semibold leading-6 text-white">Pesan Masuk</h1>
+        <p class="mt-2 text-sm text-white">Daftar semua pesan WhatsApp yang masuk dari pelanggan.</p>
       </div>
       <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
         <div class="flex space-x-4">
@@ -30,15 +30,12 @@
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
           <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-300">
-              <thead class="bg-gray-50">
+              <thead class="bg-dark-300">
                 <tr>
-                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Pelanggan</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Pesan</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Waktu</th>
-                  <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                    <span class="sr-only">Aksi</span>
-                  </th>
+                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-6">Pelanggan</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Pesan</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Status</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Waktu</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200 bg-white">
@@ -46,15 +43,15 @@
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                     <div class="flex items-center">
                       <div class="h-10 w-10 flex-shrink-0">
-                        <UserCircleIcon class="h-10 w-10 text-gray-300" aria-hidden="true" />
+                        <UserCircleIcon class="h-10 w-10 text-gray-400" aria-hidden="true" />
                       </div>
                       <div class="ml-4">
-                        <div class="font-medium text-gray-900">{{ message.customer }}</div>
-                        <div class="text-gray-500">{{ message.phone }}</div>
+                        <div class="font-medium text-white">{{ message.customer }}</div>
+                        <div class="text-gray-300">{{ message.phone }}</div>
                       </div>
                     </div>
                   </td>
-                  <td class="px-3 py-4 text-sm text-gray-500">
+                  <td class="px-3 py-4 text-sm text-gray-300">
                     <div class="max-w-md">
                       <p class="truncate">{{ message.content }}</p>
                       <span v-if="message.mediaUrl" class="mt-1 text-primary-600">
@@ -62,7 +59,7 @@
                       </span>
                     </div>
                   </td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
                     <span :class="[
                       message.status === 'unread' ? 'bg-yellow-50 text-yellow-800' :
                       message.status === 'read' ? 'bg-blue-50 text-blue-800' :
@@ -76,7 +73,7 @@
                       }}
                     </span>
                   </td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatTime(message.time) }}</td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ formatTime(message.time) }}</td>
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                     <button
                       @click="replyMessage(message)"
@@ -129,7 +126,7 @@
               <DialogPanel class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                 <div>
                   <div class="mt-3 text-center sm:mt-5">
-                    <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">
+                    <DialogTitle as="h3" class="text-base font-semibold leading-6 text-white">
                       Balas Pesan
                     </DialogTitle>
                     <div class="mt-2">
