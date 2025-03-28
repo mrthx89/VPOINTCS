@@ -53,7 +53,8 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'CustomerPhone',
     timestamps: true,
     createdAt: 'CreatedAt',
-    updatedAt: 'UpdatedAt'
+    updatedAt: 'UpdatedAt',
+    underscored: false
   });
 
   return CustomerPhone;

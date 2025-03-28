@@ -65,7 +65,8 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'OutgoingMessage',
     timestamps: true,
     createdAt: 'CreatedAt',
-    updatedAt: 'UpdatedAt'
+    updatedAt: 'UpdatedAt',
+    underscored: false
   });
 
   return OutgoingMessage;

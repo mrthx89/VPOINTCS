@@ -92,12 +92,10 @@ const handleLogin = async () => {
       }),
     })
 
-    if (!response.ok) {
-      const error = await response.json()
-      throw new Error(error.message || 'Login gagal')
-    }
-
     const data = await response.json()
+    if (!response.ok) {
+      throw new Error(data.message || 'Login gagal')
+    }
     localStorage.setItem('token', data.token)
     localStorage.setItem('user', JSON.stringify(data.user))
 
