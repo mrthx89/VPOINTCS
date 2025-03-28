@@ -21,64 +21,40 @@ app.use('/auth', authRouter);
 
 // Create HTTP server
 const server = createServer(app);
-
-// Initialize Socket.IO
-const io = new Server(server, {
-  cors: {
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-    methods: ['GET', 'POST']
-  }
-});
+const io = new Server(server);
 
 // Initialize WhatsApp client
-const client = new Client({
-  puppeteer: {
-    args: ['--no-sandbox']
-  }
+const client = new Client();
+
+// Socket.IO connection handling
+io.on('connection', (socket) => {
+  console.log('Client connected');
+
+  // Handle client events
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
+  });
 });
 
-// WhatsApp Events
+// WhatsApp client event handlers
 client.on('qr', (qr) => {
   qrcode.toDataURL(qr, (err, url) => {
     if (err) {
       console.error('Error generating QR code:', err);
       return;
     }
-    io.emit('whatsapp-qr', { qr: url });
+    io.emit('qr', url);
   });
 });
 
 client.on('ready', () => {
   console.log('WhatsApp client is ready!');
-  io.emit('whatsapp-ready');
+  io.emit('ready');
 });
 
-client.on('message', async (message) => {
-  io.emit('whatsapp-message', {
-    from: message.from,
-    body: message.body,
-    timestamp: message.timestamp
-  });
-});
-
-// Socket.IO Events
-io.on('connection', (socket) => {
-  console.log('Client connected:', socket.id);
-
-  socket.on('send-message', async (data) => {
-    try {
-      const { to, message } = data;
-      await client.sendMessage(to, message);
-      io.emit('message-sent', { to, message });
-    } catch (error) {
-      console.error('Error sending message:', error);
-      socket.emit('message-error', { error: error.message });
-    }
-  });
-
-  socket.on('disconnect', () => {
-    console.log('Client disconnected:', socket.id);
-  });
+client.on('message', (message) => {
+  console.log('Message received:', message.body);
+  io.emit('message', message);
 });
 
 // Initialize WhatsApp client

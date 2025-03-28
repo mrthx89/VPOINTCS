@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-export const authenticate = (req, res, next) => {
+const authenticate = (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader) {
@@ -16,7 +16,7 @@ export const authenticate = (req, res, next) => {
   }
 };
 
-export const authorize = (roles = []) => {
+const authorize = (roles = []) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return res.status(403).json({ message: 'Akses tidak diizinkan' });
@@ -24,3 +24,5 @@ export const authorize = (roles = []) => {
     next();
   };
 };
+
+export { authenticate, authorize };

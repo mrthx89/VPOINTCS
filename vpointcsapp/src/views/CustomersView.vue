@@ -57,9 +57,9 @@
                                             </p>
                                         </div>
                                     </td>
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
                                         <span :class="[
-                            customer.isActive ? 'bg-green-50 text-green-800' : 'bg-gray-50 text-gray-800',
+                            customer.isActive ? 'bg-primary-900/30 text-primary-300' : 'bg-dark-300 text-gray-400',
                             'inline-flex rounded-full px-2 text-xs font-semibold leading-5'
                         ]">
                                             {{ customer.isActive ? 'Aktif' : 'Tidak Aktif' }}
@@ -68,11 +68,11 @@
                                     <td
                                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                         <button @click="viewCustomerDetails(customer)"
-                                            class="text-primary-600 hover:text-primary-900 mr-4">
+                                            class="text-primary-400 hover:text-primary-300 mr-4">
                                             Detail
                                         </button>
                                         <button @click="sendMessage(customer)"
-                                            class="text-primary-600 hover:text-primary-900">
+                                            class="text-primary-400 hover:text-primary-300">
                                             Kirim Pesan
                                         </button>
                                     </td>
@@ -99,22 +99,29 @@
                             enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200"
                             leave-from="opacity-100 translate-y-0 sm:scale-100"
                             leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-                            <DialogPanel class="relative transform overflow-hidden rounded-lg bg-dark-100 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 border border-dark-300">
+                            <DialogPanel
+                                class="relative transform overflow-hidden rounded-lg bg-dark-100 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 border border-dark-300">
                                 <div>
                                     <div class="mt-3 text-center sm:mt-5">
                                         <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-200">
                                             Kirim Pesan ke {{ selectedCustomer?.name }}
                                         </DialogTitle>
                                         <div class="mt-2">
-                                            <textarea rows="4" v-model="messageContent" class="block w-full rounded-md border-0 py-1.5 bg-dark-300 text-white shadow-sm ring-1 ring-inset ring-dark-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6" placeholder="Ketik pesan..."></textarea>
+                                            <textarea rows="4" v-model="messageContent"
+                                                class="block w-full rounded-md border-0 py-1.5 bg-dark-300 text-white shadow-sm ring-1 ring-inset ring-dark-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
+                                                placeholder="Ketik pesan..."></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                                    <button type="button" class="flex w-full justify-center rounded-md bg-primary-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500" @click="sendMessageToCustomer">
+                                    <button type="button"
+                                        class="flex w-full justify-center rounded-md bg-primary-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+                                        @click="sendMessageToCustomer">
                                         Kirim
                                     </button>
-                                    <button type="button" class="flex w-full justify-center rounded-md bg-dark-300 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-300 shadow-sm hover:bg-dark-400 hover:text-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-300 mt-3 sm:mt-0" @click="closeMessageModal">
+                                    <button type="button"
+                                        class="flex w-full justify-center rounded-md bg-dark-300 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-300 shadow-sm hover:bg-dark-400 hover:text-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-300 mt-3 sm:mt-0"
+                                        @click="closeMessageModal">
                                         Batal
                                     </button>
                                 </div>

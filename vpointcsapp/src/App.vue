@@ -67,7 +67,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { BellIcon, UserCircleIcon } from '@heroicons/vue'
+import { BellIcon, UserCircleIcon } from '@heroicons/vue/24/outline'
 
 const navigation = ref([
     { name: 'Dashboard', href: '/', current: true },

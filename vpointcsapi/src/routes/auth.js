@@ -21,10 +21,11 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Username atau password salah' });
     }
 
-    // Generate token JWT
+    // Generate token
     const token = user.generateToken();
 
     res.json({
+      message: 'Login berhasil',
       token,
       user: {
         id: user.UserID,
@@ -39,19 +40,37 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Get current user info
-router.get('/me', authenticate, async (req, res) => {
+// Register endpoint
+router.post('/register', async (req, res) => {
   try {
-    const user = await User.findByPk(req.user.id, {
-      attributes: ['UserID', 'Username', 'Name', 'Role']
+    const { username, password, name, role } = req.body;
+
+    // Hash password
+    const hashedPassword = await User.hashPassword(password);
+
+    // Buat user baru
+    const user = await User.create({
+      Username: username,
+      Password: hashedPassword,
+      Name: name,
+      Role: role || 'cs'
     });
-    if (!user) {
-      return res.status(404).json({ message: 'User tidak ditemukan' });
-    }
-    res.json(user);
+
+    res.status(201).json({
+      message: 'Registrasi berhasil',
+      user: {
+        id: user.UserID,
+        username: user.Username,
+        name: user.Name,
+        role: user.Role
+      }
+    });
   } catch (error) {
-    console.error('Get user info error:', error);
-    res.status(500).json({ message: 'Terjadi kesalahan saat mengambil info user' });
+    console.error('Register error:', error);
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      return res.status(400).json({ message: 'Username sudah digunakan' });
+    }
+    res.status(500).json({ message: 'Terjadi kesalahan saat registrasi' });
   }
 });
 
