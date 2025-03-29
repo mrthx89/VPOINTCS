@@ -80,16 +80,16 @@ Semua konfigurasi sensitif disimpan dalam file .env di masing-masing folder:
 
 ### Frontend (.env)
 ```
-VITE_API_URL=http://localhost:3000
-VITE_WS_URL=ws://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:4000
+NEXT_PUBLIC_WS_URL=ws://localhost:5000
 ```
 
 ### Backend (.env)
 ```
-PORT=3000
-DB_SERVER=local
+PORT=4000
+DB_SERVER=localhost
 DB_NAME=VPointCS
 DB_USER=sa
-DB_PASSWORD=Sg1
-WS_PORT=3000
+DB_PASSWORD=your_password
+WS_PORT=5000
 ```
