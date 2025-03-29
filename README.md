@@ -4,7 +4,7 @@ Aplikasi Customer Service berbasis WhatsApp untuk mengelola pesan masuk dengan m
 
 ## Struktur Proyek
 
-- `vpointcsapp/` - Frontend Vue.js + Tailwind CSS
+- `vpointcs.app/` - Frontend Next.js + Tailwind CSS + Material UI
 - `vpointcsapi/` - Backend Express.js + WhatsApp Web.js
 
 ## Fitur Utama
@@ -19,10 +19,17 @@ Aplikasi Customer Service berbasis WhatsApp untuk mengelola pesan masuk dengan m
 
 ## Teknologi
 
-### Frontend (vpointcsapp)
-- Vue.js
+### Frontend (vpointcs.app)
+- Next.js
 - Tailwind CSS
 - WebSocket client
+- Material UI
+- Axios
+- React Toastify
+- React Icons
+- React Hot Toast
+- React Hotkeys
+- React Hotkeys Hook
 
 ### Backend (vpointcsapi)
 - Express.js
